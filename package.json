@@ -1,0 +1,30 @@
+{
+  "name": "everanimal",
+  "version": "1.0.0",
+  "description": "Petsitting app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpr243/everanimal.git"
+  },
+  "author": "Janet Reid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpr243/everanimal/issues"
+  },
+  "homepage": "https://github.com/jpr243/everanimal#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "gravatar": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.1",
+    "request": "^2.88.2"
+  }
+}
