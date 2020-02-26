@@ -6,9 +6,9 @@ export const Landing = () => {
     <section className='landing'>
       <div className='dark-overlay'>
         <div className='landing-inner'>
-          <h1 className='x-large'>Welcome to Everanimal</h1>
+          <h1 className='x-large'>Everanimal</h1>
           <p className='lead'>
-            Make a booking, create a profile or update your information
+            Trust us to care for your beloved pets and home
           </p>
           <div className='buttons'>
             <Link to='/register' className='btn btn-primary'>

@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  --primary-color: rgb(55, 154, 216);
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -55,6 +55,7 @@ img {
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1rem;
+  
 }
 
 .lead {
@@ -272,22 +273,6 @@ button {
   width: 4rem;
 }
 
-.form .social-input i.fa-twitter {
-  color: #38a1f3;
-}
-.form .social-input i.fa-facebook {
-  color: #3b5998;
-}
-.form .social-input i.fa-instagram {
-  color: #3f729b;
-}
-.form .social-input i.fa-youtube {
-  color: #c4302b;
-}
-.form .social-input i.fa-linkedin {
-  color: #0077b5;
-}
-
 .table th,
 .table td {
   padding: 1rem;
@@ -300,10 +285,11 @@ button {
 
 /* Navbar */
 .navbar {
+  background-color: rgb(55, 154, 216);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 1.7rem 2rem;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -323,7 +309,7 @@ button {
 }
 
 .navbar a:hover {
-  color: var(--primary-color);
+  color: var(--dark-color);
 }
 
 .navbar .welcome span {
