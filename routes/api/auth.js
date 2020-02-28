@@ -9,8 +9,8 @@ const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 
 // @route  GET api/auth
-// @desc   Test route
-// @access Public
+// @desc   Get user by token
+// @access Private
 router.get('/', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
@@ -41,7 +41,7 @@ router.post(
       // see if user exists
       let user = await User.findOne({ email });
 
-      if (user) {
+      if (!user) {
         return res
           .status(400)
           .json({ errors: [{ msg: 'Invalid Credentials' }] });
