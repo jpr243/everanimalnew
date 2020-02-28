@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,15 +27,19 @@ const Register = ({ setAlert, register }) => {
     }
   };
 
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
+  }
+
   return (
     <Fragment>
       <section className='container'>
-        <h1 ClassName='large text'>Sign Up</h1>
-        <p ClassName='lead'>
+        <h1 className='large text-primary '>Sign Up</h1>
+        <p className='lead'>
           <i className='fas fa-user'></i> Create Your Account
         </p>
-        <form ClassName='form' onSubmit={e => onSubmit(e)}>
-          <div ClassName='form-group'>
+        <form className='form' onSubmit={e => onSubmit(e)}>
+          <div className='form-group'>
             <input
               type='text'
               placeholder='Name'
@@ -44,7 +48,6 @@ const Register = ({ setAlert, register }) => {
               onChange={e => onChange(e)}
             />
           </div>
-          <br />
           <div className='form-group'>
             <input
               type='email'
@@ -89,7 +92,12 @@ const Register = ({ setAlert, register }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 };
 
-export default connect(null, { setAlert, register })(Register);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { setAlert, register })(Register);
