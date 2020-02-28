@@ -55,7 +55,6 @@ img {
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1rem;
-  
 }
 
 .lead {
@@ -317,7 +316,7 @@ button {
 }
 
 /* Landing Page */
-.landing {
+.landing-inner {
   position: relative;
   background: url('./img/showcase.jpg') no-repeat center center/cover;
   height: 100vh;

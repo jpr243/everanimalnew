@@ -10,6 +10,10 @@ export const Landing = () => {
           <p className='lead'>
             Trust us to care for your beloved pets and home
           </p>
+          <br />
+          <br />
+          <br />
+          <br />
           <div className='buttons'>
             <Link to='/register' className='btn btn-primary'>
               Sign Up
