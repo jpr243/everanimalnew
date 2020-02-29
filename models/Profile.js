@@ -6,60 +6,49 @@ const ProfileSchema = new mongoose.Schema({
     ref: 'user',
     required: true
   },
+  
   address: {
-    housenumber: {
-      type: Number,
-      required: true
-    },
-    street: {
-      type: String,
-      required: true
-    },
-    suburb: {
-      type: String,
-      required: true
-    }
+    type: String,
+    required: true
+  },
+  suburb: {
+    type: String,
+    required: true
   },
   phone: {
     type: Number,
     required: true
   },
   emergencycontact: {
-    name: {
-      type: String,
-      required: true
-    },
-    relationship: {
-      type: String
-    },
-    phone: {
-      type: Number,
-      required: true
-    },
-    email: {
-      type: String
-    }
+    type: String,
+    required: true
   },
-  vet: {
-    practicename: {
-      type: String,
-      required: true
-    },
-    address: {
-      housenumber: {
-        type: Number
-      },
-      street: {
-        type: String
-      },
-      suburb: {
-        type: String
-      }
-    },
-    phone: {
-      type: Number,
-      required: true
-    }
+  relationship: {
+    type: String
+  },
+  emergencyphone: {
+    type: Number,
+    required: true
+  },
+  emergencyemail: {
+    type: String
+  },
+  vetname: {
+    type: String,
+    required: true
+  },
+  vetaddress: {
+    type: Number
+  },
+  vetstreet: {
+    type: String
+  },
+  vetsuburb: {
+    type: String
+  },
+  vetphone: {
+    type: Number,
+    required: true
   },
   housedetails: {
     securitycompany: {

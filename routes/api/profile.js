@@ -7,9 +7,9 @@ const _ = require('lodash');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
-// @route  GET api/profile/me
-// @desc   Get current users profile
-// @access Private
+//@route  GET api/profile/me
+//@desc   Get current users profile
+//@access Private
 
 router.get('/me', auth, async (req, res) => {
   try {
@@ -28,7 +28,7 @@ router.get('/me', auth, async (req, res) => {
 
 // @route POST api/profile
 // @desc Create or update user profile
-// 
+//
 
 router.post('/', auth, async (req, res) => {
   try {

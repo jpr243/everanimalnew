@@ -40,7 +40,7 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <nav className='navbar'>
       <h1>
         <Link to='/'>
-          <i className='fa fa-heart-o'></i> Everanimal
+          <i className='fa fa-paw'></i> Everanimal
         </Link>
       </h1>
 
