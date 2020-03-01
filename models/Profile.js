@@ -6,10 +6,10 @@ const ProfileSchema = new mongoose.Schema({
     ref: 'user'
   },
   address: {
-    type: String,
+    type: String
   },
   suburb: {
-    type: String,
+    type: String
   },
   phone: {
     type: Number,
@@ -50,15 +50,13 @@ const ProfileSchema = new mongoose.Schema({
     type: String
   },
   cctv: {
-    type: Boolean,
-    default: false
+    type: Boolean
   },
   sparekeylocation: {
     type: String
   },
   wifinetwork: {
-    type: Boolean,
-    default: false
+    type: Boolean
   },
   wifipassword: {
     type: String

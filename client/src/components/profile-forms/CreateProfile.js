@@ -72,7 +72,9 @@ const CreateProfile = ({ createProfile, history }) => {
               placeholder='Phone'
               name='phone'
               value={phone}
+              required
               onChange={e => onChange(e)}
+             
             />
           </div>
           <br />
@@ -85,7 +87,9 @@ const CreateProfile = ({ createProfile, history }) => {
               placeholder='Name of Emergency Contact'
               name='emergencycontact'
               value={emergencycontact}
+              required
               onChange={e => onChange(e)}
+             
             />
           </div>
           <div className='form-group'>
@@ -103,6 +107,7 @@ const CreateProfile = ({ createProfile, history }) => {
               placeholder='Emergency Contact Mobile No. '
               name='emergencyphone'
               value={emergencyphone}
+              required
               onChange={e => onChange(e)}
             />
           </div>
@@ -125,6 +130,7 @@ const CreateProfile = ({ createProfile, history }) => {
               placeholder='Name of Vet Surgery'
               name='vetname'
               value={vetname}
+              required
               onChange={e => onChange(e)}
             />
           </div>
@@ -152,6 +158,7 @@ const CreateProfile = ({ createProfile, history }) => {
               placeholder='Contact No. for Vet Surgery'
               name='vetphone'
               value={vetphone}
+              required
               onChange={e => onChange(e)}
             />
           </div>

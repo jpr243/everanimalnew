@@ -32,7 +32,7 @@ export const createProfile = (
         'Content-type': 'application/json'
       }
     };
-    const res = await axios.get('/api/profile', formData, config);
+    const res = await axios.post('/api/profile', formData, config);
     dispatch({
       type: GET_PROFILE,
       payload: res.data
