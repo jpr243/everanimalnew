@@ -34,7 +34,7 @@ const ProfileSchema = new mongoose.Schema({
     required: true
   },
   vetaddress: {
-    type: Number
+    type: String
   },
   vetstreet: {
     type: String
