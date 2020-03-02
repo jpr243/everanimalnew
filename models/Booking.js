@@ -1,35 +1,37 @@
 const mongoose = require('mongoose');
 
 const BookingSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  },
   datefrom: {
     type: Date,
     required: true
   },
   departuretime: {
     type: Date,
-    required: true
   },
   sitterarrive: {
     type: Date,
-    required: true
+   // required: true
   },
   dateto: {
-    type: Date
+    type: Date,
+    required: true
   },
   returntime: {
     type: Date
   },
   sitterleave: {
     type: Date,
-    required: true
+  //  required: true
   },
-  keys: {
+  keysleft: {
     type: String,
-    required: true
   },
   money: {
     type: Number,
-    required: true
   }
 });
 
