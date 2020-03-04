@@ -8,6 +8,10 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const GET_PROFILE = 'GET_PROFILE';
-export const PROFILE_ERROR = 'PROFILE_ERROR';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
-
+export const PROFILE_ERROR = 'PROFILE_ERROR';
+export const CREATE_BOOKING = 'CREATE_BOOKING';
+export const BOOKING_ERROR = 'BOOKING_ERROR';
+export const UPDATE_BOOKING = 'UPDATE_BOOKING';
+export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
