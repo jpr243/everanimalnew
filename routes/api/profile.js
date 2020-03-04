@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const config = require('config');
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const _ = require('lodash');
@@ -15,7 +16,7 @@ router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.user.id
-    }).populate('user', ['name', 'avatar']);
+    }).populate('user', ['name']);
     if (!profile) {
       return res.status(400).json({ msg: 'There is no profile for this user' });
     }
@@ -103,15 +104,15 @@ router.post(
 // @route    GET api/profile
 // @desc     Get all profiles
 // @access   Public
-router.get('/', async (req, res) => {
-  try {
-    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
-    res.json(profiles);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
-});
+//router.get('/', async (req, res) => {
+// try {
+//   const profiles = await Profile.find().populate('user', ['name']);
+//   res.json(profiles);
+// } catch (err) {
+//   console.error(err.message);
+//   res.status(500).send('Server Error');
+// }
+//});
 
 //@route  GET api/profile/user/:user_id
 //@desc   Get profile by user ID
@@ -121,7 +122,7 @@ router.get('/user/:user_id', async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id
-    }).populate('user', ['name', 'avatar']);
+    }).populate('user', ['name']);
 
     if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 
@@ -151,5 +152,111 @@ router.delete('/', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+//@route  PUT api/profile/pet
+//@desc   Add pet to profile
+//@access Private
+
+router.put(
+  '/pet',
+  [
+    auth,
+    [
+      check('petname', 'Your pets name is required')
+        .not()
+        .isEmpty(),
+      check('animal', 'Type of animal is required')
+        .not()
+        .isEmpty(),
+      check('breed', 'Your pets breed is required')
+        .not()
+        .isEmpty(),
+      check('sex', 'Your pets sex is required')
+        .not()
+        .isEmpty(),
+      check('age', 'Your pets age is required')
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const {
+      petname,
+      animal,
+      breed,
+      sex,
+      desexed,
+      microchipped,
+      registered,
+      rescuepet,
+      age,
+      vaccinations,
+      allergies,
+      healthconditions,
+      medication
+    } = req.body;
+
+    const newPet = {
+      petname,
+      animal,
+      breed,
+      sex,
+      desexed,
+      microchipped,
+      registered,
+      rescuepet,
+      age,
+      vaccinations,
+      allergies,
+      healthconditions,
+      medication
+    };
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+
+      profile.pet.unshift(newPet);
+
+      await profile.save();
+
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+//====================================================================
+//NEED TO FIX DELETE
+//@route  DELETE api/profile/pet/:pet_id
+//@desc   Delete pet from profile
+//@access Private
+
+router.delete('/pet/:pet_id', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // Get remove index
+    const removeIndex = profile.pet
+      .map(item => item.id)
+      .indexOf(req.params.pet_id);
+
+    profile.pet.splice(removeIndex, 1);
+
+    await profile.save();
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+//
 
 module.exports = router;

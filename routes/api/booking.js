@@ -96,18 +96,18 @@ router.post(
 // @route    GET api/booking
 // @desc     Get all bookings
 // @access   Public
-router.get('/', async (req, res) => {
-  try {
-    const bookings = await Booking.find().populate('user', [
-      'datefrom',
-      'dateto'
-    ]);
-    res.json(bookings);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
-});
+//router.get('/', async (req, res) => {
+//  try {
+ //   const bookings = await Booking.find().populate('user', [
+ //     'datefrom',
+ //     'dateto'
+ //   ]);
+ //   res.json(bookings);
+ // } catch (err) {
+ //   console.error(err.message);
+ //   res.status(500).send('Server Error');
+ // }
+//});
 
 //@route  GET api/booking/user/:user_id
 //@desc   Get booking by user ID
