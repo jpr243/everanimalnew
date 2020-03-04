@@ -25,10 +25,7 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <a href='#!'>Your Profile</a>
-      </li>
-      <li>
-        <Link to='/register'>Register</Link>
+        <Link to='/register'>Join Now</Link>
       </li>
       <li>
         <Link to='/login'>Login</Link>

@@ -34,7 +34,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Fragment>
       <section className='container'>
-        <h1 className='large text-primary '>Sign Up</h1>
+        <h1 className='large text-primary '>Join Now</h1>
         <p className='lead'>
           <i className='fas fa-user'></i> Create Your Account
         </p>
@@ -56,10 +56,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               value={email}
               onChange={e => onChange(e)}
             />
-            <small className='form-text'>
-              This site uses Gravatar so if you want a profile image, use a
-              Gravatar email
-            </small>
           </div>
           <div className='form-group'>
             <input

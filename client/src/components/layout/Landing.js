@@ -9,23 +9,27 @@ export const Landing = ({ isAuthenticated }) => {
   }
   return (
     <section className='landing'>
-      <div className='dark-overlay'>
-        <div className='landing-inner'>
-          <h1 className='x-large'>Everanimal</h1>
-          <p className='lead'>
-            Trust us to care for your beloved pets and home
-          </p>
-          <br />
-          <br />
-          <br />
-          <br />
-          <div className='buttons'>
-            <Link to='/register' className='btn btn-primary'>
-              Sign Up
-            </Link>
-            <Link to='/login' className='btn btn-light'>
-              Login
-            </Link>
+      <div className='container'>
+        <div className='dark-overlay'>
+          <div className='landing-inner'>
+            <h1 className='x-large text-primary'>Everanimal</h1>
+            <p className='lead text-dark'>
+              Trust us to care for your beloved pets and home
+            </p>
+            < br />
+            <p className='text-dark'>
+              Going away? Enjoy your holiday worry free knowing your home and pets are safe!
+            </p>
+            <br />
+            <br />
+            <div className='buttons'>
+              <Link to='/register' className='btn btn-primary'>
+                Join Now
+              </Link>
+              <Link to='/login' className='btn btn-light'>
+                Login
+              </Link>
+            </div>
           </div>
         </div>
       </div>
