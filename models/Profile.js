@@ -46,33 +46,54 @@ const ProfileSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  securitycompany: {
-    type: String
-  },
-  cctv: {
-    type: Boolean
-  },
-  sparekeylocation: {
-    type: String
-  },
-  wifinetwork: {
-    type: Boolean
-  },
-  wifipassword: {
-    type: String
-  },
-  mailpreference: {
-    type: String
-  },
-  parking: {
-    type: String
-  },
-  reticulation: {
-    type: String
-  },
-  rubbishdays: {
-    type: String
-  },
+  pet: [
+    {
+      petname: {
+        type: String,
+        required: true
+      },
+      animal: {
+        type: String,
+        required: true
+      },
+      breed: {
+        type: String,
+        required: true
+      },
+      sex: {
+        type: String,
+        required: true
+      },
+      desexed: {
+        type: String
+      },
+      microchipped: {
+        type: String
+      },
+      registered: {
+        type: String
+      },
+      rescuepet: {
+        type: String
+      },
+      age: {
+        type: Number,
+        required: true
+      },
+      vaccinations: {
+        type: String
+      },
+      allergies: {
+        type: String
+      },
+      healthconditions: {
+        type: String
+      },
+      medication: {
+        type: String
+      }
+    }
+  ],
   date: {
     type: Date,
     default: Date.now

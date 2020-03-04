@@ -10,28 +10,31 @@ const BookingSchema = new mongoose.Schema({
     required: true
   },
   departuretime: {
-    type: Date,
+    type: String
   },
   sitterarrive: {
-    type: Date,
-   // required: true
+    type: String,
+    required: true
   },
   dateto: {
     type: Date,
     required: true
   },
   returntime: {
-    type: Date
+    type: String
   },
   sitterleave: {
-    type: Date,
-  //  required: true
+    type: String
   },
   keysleft: {
-    type: String,
+    type: String
   },
   money: {
-    type: Number,
+    type: Number
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 
