@@ -62,7 +62,6 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <section className='container'>
         <p className='lead'>Please complete all information below</p>
         <h2 className='large text-primary'>
           <i className='fas fa-address-card'></i>Contact Details
@@ -122,7 +121,7 @@ const EditProfile = ({
           <div className='form-group'>
             <input
               type='text'
-              placeholder='Emergency Contact Mobile No. '
+              placeholder='Emergency Contact Mobile No.'
               name='emergencyphone'
               value={emergencyphone}
               required
@@ -187,7 +186,6 @@ const EditProfile = ({
             Go Back
           </Link>
         </form>
-      </section>
     </Fragment>
   );
 };

@@ -1,4 +1,4 @@
-import React, { Fragment, useState} from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -6,7 +6,7 @@ import { createBooking } from '../../actions/booking';
 
 const CreateBooking = ({ createBooking, history }) => {
   const [formData, setFormData] = useState({
-    datefrom:'',
+    datefrom: '',
     departuretime: '',
     sitterarrive: '',
     dateto: '',
@@ -16,16 +16,16 @@ const CreateBooking = ({ createBooking, history }) => {
     money: ''
   });
 
-const {
-  datefrom,
-  departuretime,
-  sitterarrive,
-  dateto,
-  returntime,
-  sitterleave,
-  keysleft,
-  money
-} = formData;
+  const {
+    datefrom,
+    departuretime,
+    sitterarrive,
+    dateto,
+    returntime,
+    sitterleave,
+    keysleft,
+    money
+  } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,7 +37,6 @@ const {
 
   return (
     <Fragment>
-      <section className='container'>
         <h2 className='large text-primary'>
           <i className='fas fa-suitcase'></i>Booking Details
         </h2>
@@ -45,7 +44,7 @@ const {
         <form className='form' onSubmit={e => onSubmit(e)}>
           <div className='form-group'>
             <input
-              type='text'
+              type='date'
               placeholder=''
               name='datefrom'
               value={datefrom}
@@ -56,17 +55,19 @@ const {
           </div>
           <div className='form-group'>
             <input
-              type='text'
+              type='time'
               placeholder=''
               name='departuretime'
               value={departuretime}
               onChange={e => onChange(e)}
             />
-            <small className='form-text'>What time will you be leaving home?</small>
+            <small className='form-text'>
+              What time will you be leaving home?
+            </small>
           </div>
           <div className='form-group'>
             <input
-              type='text'
+              type='time'
               placeholder=''
               name='sitterarrive'
               value={sitterarrive}
@@ -79,7 +80,7 @@ const {
           </div>
           <div className='form-group'>
             <input
-              type='text'
+              type='date'
               placeholder=''
               name='dateto'
               value={dateto}
@@ -90,7 +91,7 @@ const {
           </div>
           <div className='form-group'>
             <input
-              type='text'
+              type='time'
               placeholder=''
               name='returntime'
               value={returntime}
@@ -100,11 +101,10 @@ const {
           </div>
           <div className='form-group'>
             <input
-              type='text'
+              type='time'
               placeholder=''
               name='sitterleave'
               value={sitterleave}
-              required
               onChange={e => onChange(e)}
             />
             <small className='form-text'>
@@ -142,18 +142,12 @@ const {
             Go Back
           </Link>
         </form>
-      </section>
     </Fragment>
   );
 };
 
 CreateBooking.propTypes = {
-  createBooking: PropTypes.func.isRequired,
+  createBooking: PropTypes.func.isRequired
 };
 
-
-export default connect(null, { createBooking})(
-  withRouter(CreateBooking)
-);
-
-
+export default connect(null, { createBooking })(withRouter(CreateBooking));
