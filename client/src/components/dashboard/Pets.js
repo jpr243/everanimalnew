@@ -6,7 +6,7 @@ import { deletePet } from '../../actions/profile';
 const Pets = ({ petinfo, deletePet }) => {
   const pets = petinfo.map(pet => (
     <tr key={pet._id}>
-      <td>{pet.pet}</td>
+      <td>{pet.petname}</td>
       <td className='hide-sm'>{pet.animal}</td>
       <td className='hide-sm'>{pet.breed}</td>
       <td>
@@ -16,10 +16,8 @@ const Pets = ({ petinfo, deletePet }) => {
       </td>
     </tr>
   ));
-
   return (
     <Fragment>
-      <br />
       <h2 className='my-2'>Pet Information</h2>
       <table className='table'>
         <thead>

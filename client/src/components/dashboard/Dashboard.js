@@ -4,12 +4,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import DashboardActions from './DashboardActions';
-import { getCurrentProfile } from '../../actions/profile';
+import Pets from './Pets';
+import Bookings from './Bookings';
+import { getCurrentProfile, deleteAccount } from '../../actions/profile';
+import { createBooking } from '../../actions/booking';
 
 const Dashboard = ({
   getCurrentProfile,
+  creatBooking,
+  deleteAccount,
   auth: { user },
-  profile: { profile, loading }
+  profile: { profile, loading },
+  booking: { booking }
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -19,33 +25,39 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
-      <section className='container'>
-        <h1 className='large text-primary'>Dashboard</h1>
-        <hl className='large text-primary'></hl>
-        <p className='lead'>
-          <i className='fas fa-user'></i> Welcome {user && user.name}
-        </p>
-        {profile !== null ? (
-          <Fragment>
-            <DashboardActions />
-          </Fragment>
-        ) : (
-          <Fragment>
-            <p>
-              You have not yet set up a Profile, please add some information
-            </p>
-            <Link to='/create-profile' className='btn btn-primary my-1'>
-              Create Profile
-            </Link>
-          </Fragment>
-        )}
-      </section>
+      <h1 className='large text-primary'>Dashboard</h1>
+      <h1 className='large text-primary'></h1>
+      <p className='lead'>
+        <i className='fas fa-user'></i> Welcome {user && user.name}
+      </p>
+      {profile !== null ? (
+        <Fragment>
+          <DashboardActions />
+          <Pets petinfo={profile.pet} />
+          <Bookings bookinginfo={booking} />
+          <br />
+          <br />
+          <div className='my-2'>
+            <button className='btn btn-danger' onClick={() => deleteAccount()}>
+              <i className='fas fa-user-minus'></i>Delete My Account
+            </button>
+          </div>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <p>You have not yet set up a Profile, please add some information</p>
+          <Link to='/create-profile' className='btn btn-primary my-1'>
+            Create Profile
+          </Link>
+        </Fragment>
+      )}
     </Fragment>
   );
 };
 
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 };
@@ -55,4 +67,6 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+  Dashboard
+);
