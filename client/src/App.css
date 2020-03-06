@@ -226,7 +226,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(206, 213, 233, 0.568);
   position: absolute;
   top: 0;
   left: 0;
@@ -284,16 +284,25 @@ button {
 
 /* Navbar */
 .navbar {
-  background-color: rgb(55, 154, 216);
+  background: #16bffd; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #cb3066,
+    #16bffd
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #cb3066,
+    #16bffd
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.7rem 1rem;
-  position: fixed;
+  position: static;
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
 }
 
@@ -308,7 +317,7 @@ button {
 }
 
 .navbar a:hover {
-  color: var(--dark-color);
+  color: lightslategrey;
 }
 
 .navbar .welcome span {
@@ -316,13 +325,9 @@ button {
 }
 
 /* Landing Page */
-.landing-inner {
-  position: relative;
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
-  height: 100vh;
-}
 
 .landing-inner {
+  position: relative;
   color: #fff;
   height: 100%;
   width: 80%;
@@ -332,145 +337,6 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-/* Profiles Page */
-.profile {
-  display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
-  align-items: center;
-  grid-gap: 2rem;
-  padding: 1rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-/* Profile Page */
-.profile-grid {
-  display: grid;
-  grid-template-areas:
-    'top top'
-    'about about'
-    'exp edu'
-    'github github';
-  grid-gap: 1rem;
-}
-
-.profile-top {
-  grid-area: top;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.profile-top img {
-  width: 250px;
-}
-
-.profile-top .icons a {
-  color: #fff;
-  margin: 0 0.3rem;
-}
-
-.profile-top .icons a:hover {
-  color: var(--dark-color);
-}
-
-.profile-about {
-  grid-area: about;
-  text-align: center;
-}
-
-.profile-about .skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.profile-exp {
-  grid-area: exp;
-}
-
-.profile-edu {
-  grid-area: edu;
-}
-
-.profile-exp h2,
-.profile-edu h2 {
-  margin-bottom: 1rem;
-}
-
-.profile-exp > div,
-.profile-edu > div {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: #ccc 1px dotted;
-}
-
-.profile-exp > div:last-child,
-.profile-edu > div:last-child {
-  border: 0;
-}
-
-.profile-exp p,
-.profile-edu p {
-  margin: 0.5rem 0;
-}
-
-.profile-github {
-  grid-area: github;
-}
-
-.profile-github .repo {
-  display: flex;
-}
-
-.profile-github .repo > div:first-child {
-  flex: 7;
-  flex-basis: 70%;
-}
-
-.profile-github > div:last-child {
-  flex: 3;
-  flex-basis: 20%;
-}
-
-/* Posts Page */
-.post-form .post-form-header {
-  background: var(--primary-color);
-  padding: 0.5rem;
-}
-
-.post {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-gap: 2rem;
-  align-items: center;
-}
-
-.post > div:first-child {
-  text-align: center;
-}
-
-.post img {
-  width: 100px;
-}
-
-.post .comment-count {
-  background: var(--light-color);
-  color: var(--primary-color);
-  padding: 0.1rem 0.2rem;
-  border-radius: 5px;
-  font-size: 0.8rem;
-}
-
-.post .post-date {
-  color: #aaa;
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
 }
 
 /* Mobile Styles */
@@ -559,4 +425,75 @@ button {
   .post button {
     padding: 0.3rem 0.4rem;
   }
+}
+
+.header-color {
+  background: #16bffd; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #cb3066,
+    #16bffd
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #cb3066,
+    #16bffd
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding-top: 20px;
+  padding-left: 30px;
+}
+
+.landing-grid {
+  background: #16bffd; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #cb3066,
+    #16bffd
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #cb3066,
+    #16bffd
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  text-align: center;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pet-img {
+  height: 200px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.sq-img {
+  height: 150px;
+  width: 250px;
+  padding-bottom: 20px;
+}
+
+.banner-text {
+  background-color: darkslateblue;
+  opacity: 0.8;
+  width: 35%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 40px;
+}
+
+.banner-text h1 {
+  font-size: 66px;
+  font-weight: bold;
+  color: white;
+}
+
+.text-minor {
+  padding-top: 6px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
 }
