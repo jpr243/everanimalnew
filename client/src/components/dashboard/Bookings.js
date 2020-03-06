@@ -1,17 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
+import moment from 'moment';
 import { connect } from 'react-redux';
-import { deleteBooking } from '../../actions/booking';
+import { deleteBooking } from '../../actions/profile';
 
 const Bookings = ({ bookinginfo, deleteBooking }) => {
   const bookings = bookinginfo.map(book => (
     <tr key={book._id}>
       <td>
-        <Moment format='YYYY/MM/DD'>{book.from}</Moment>
+        <Moment format='DD/MM/YYYY'>{moment.utc(book.from)}</Moment>
       </td>
       <td>
-        <Moment format='YYYY/MM/DD'>{book.to}</Moment>
+        <Moment format='DD/MM/YYYY'>{moment.utc(book.to)}</Moment>
       </td>
       <td>
         <button

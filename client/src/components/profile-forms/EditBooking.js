@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createBooking, getCurrentBooking } from '../../actions/booking';
+import { createBooking, getCurrentBooking } from '../../actions/profile';
 
 const initialState = {
   datefrom: '',
@@ -48,9 +48,9 @@ const EditBooking = ({
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async e => {
+  const onSubmit = e => {
     e.preventDefault();
-    createBooking(formData, history);
+    createBooking(formData, history, true);
   };
 
   return (
@@ -59,7 +59,7 @@ const EditBooking = ({
         <i className='fas fa-suitcase'></i>Booking Details
       </h2>
       <p className='lead'>Please update relevant information below</p>
-      <form className='form' onSubmit={e => onSubmit(e)}>
+      <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
           <input
             type='date'
@@ -67,7 +67,7 @@ const EditBooking = ({
             name='datefrom'
             value={datefrom}
             required
-            onChange={e => onChange(e)}
+            onChange={onChange}
           />
           <small className='form-text'>Departure Date</small>
         </div>
@@ -77,7 +77,7 @@ const EditBooking = ({
             placeholder=''
             name='departuretime'
             value={departuretime}
-            onChange={e => onChange(e)}
+            onChange={onChange}
           />
           <small className='form-text'>
             What time will you be leaving home?
@@ -90,7 +90,7 @@ const EditBooking = ({
             name='sitterarrive'
             value={sitterarrive}
             required
-            onChange={e => onChange(e)}
+            onChange={onChange}
           />
           <small className='form-text'>
             What time should the sitter arrive at your home?
@@ -103,7 +103,7 @@ const EditBooking = ({
             name='dateto'
             value={dateto}
             required
-            onChange={e => onChange(e)}
+            onChange={onChange}
           />
           <small className='form-text'>Return Date</small>
         </div>
@@ -113,7 +113,7 @@ const EditBooking = ({
             placeholder=''
             name='returntime'
             value={returntime}
-            onChange={e => onChange(e)}
+            onChange={onChange}
           />
           <small className='form-text'>What time do you arrive back?</small>
         </div>
@@ -123,7 +123,7 @@ const EditBooking = ({
             placeholder=''
             name='sitterleave'
             value={sitterleave}
-            onChange={e => onChange(e)}
+            onChange={onChange}
           />
           <small className='form-text'>
             What time should the sitter leave your home?
@@ -135,7 +135,7 @@ const EditBooking = ({
             placeholder=''
             name='keysleft'
             value={keysleft}
-            onChange={e => onChange(e)}
+            onChange={onChange}
           />
           <small className='form-text'>
             Where should the sitter leave the house keys?
@@ -147,7 +147,7 @@ const EditBooking = ({
             placeholder=''
             name='money'
             value={money}
-            onChange={e => onChange(e)}
+            onChange={onChange}
           />
           <small className='form-text'>
             How much money will you leave for incidentals?

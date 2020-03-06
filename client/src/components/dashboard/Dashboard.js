@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import DashboardActions from './DashboardActions';
 import Pets from './Pets';
+import Bookings from './Bookings';
 
 import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 
@@ -22,8 +23,6 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
-       <br/>
-       <br/>
       <h1 className='large text-primary'>Dashboard</h1>
       <h1 className='large text-primary'></h1>
       <p className='lead'>
@@ -32,9 +31,9 @@ const Dashboard = ({
       {profile !== null ? (
         <Fragment>
           <DashboardActions />
+          <br />
           <Pets petinfo={profile.pet} />
-          <br />
-          <br />
+          <Bookings bookinginfo={profile.booking} />
           <div className='my-2'>
             <button className='btn btn-danger' onClick={() => deleteAccount()}>
               <i className='fas fa-user-minus'></i>Delete My Account

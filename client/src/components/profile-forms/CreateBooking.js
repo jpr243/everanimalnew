@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createBooking } from '../../actions/booking';
+import { createBooking } from '../../actions/profile';
 
 const CreateBooking = ({ createBooking, history }) => {
   const [formData, setFormData] = useState({
