@@ -101,19 +101,6 @@ router.post(
   }
 );
 
-// @route    GET api/profile
-// @desc     Get all profiles
-// @access   Public
-//router.get('/', async (req, res) => {
-// try {
-//   const profiles = await Profile.find().populate('user', ['name']);
-//   res.json(profiles);
-// } catch (err) {
-//   console.error(err.message);
-//   res.status(500).send('Server Error');
-// }
-//});
-
 //@route  GET api/profile/user/:user_id
 //@desc   Get profile by user ID
 //@access Public
@@ -231,8 +218,7 @@ router.put(
     }
   }
 );
-//====================================================================
-//NEED TO FIX DELETE
+
 //@route  DELETE api/profile/pet/:pet_id
 //@desc   Delete pet from profile
 //@access Private
@@ -257,6 +243,116 @@ router.delete('/pet/:pet_id', auth, async (req, res) => {
   }
 });
 
-//
+// @route    PUT api/profile/booking
+// @desc     Add booking to profile
+// @access   Private
+router.put(
+  '/booking',
+  [
+    auth,
+    [
+      check('datefrom', 'Your departure date is required')
+        .not()
+        .isEmpty()
+        .custom((value, { req }) => (req.body.to ? value < req.body.to : true)),
+      check('sitterarrive', 'Sitters arrival time is required')
+        .not()
+        .isEmpty(),
+      check('dateto', 'Your arrival date is required')
+        .not()
+        .isEmpty()
+        .custom((value, { req }) => (req.body.to ? value < req.body.to : true)),
+      check(
+        'sitterleave',
+        'You must tell us what time you wish the sitter to leave'
+      )
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const {
+      datefrom,
+      departuretime,
+      sitterarrive,
+      dateto,
+      returntime,
+      sitterleave,
+      keysleft,
+      money
+    } = req.body;
+
+    const newBooking = {
+      datefrom,
+      departuretime,
+      sitterarrive,
+      dateto,
+      returntime,
+      sitterleave,
+      keysleft,
+      money
+    };
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+
+      profile.booking.unshift(newBooking);
+
+      await profile.save();
+
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+//@route  GET api/booking/current
+//@desc   Get current users booking
+//@access Private
+
+router.get('/booking', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({
+      user: req.user.id
+    }).populate('user', ['name']);
+    if (!profile) {
+      return res.status(400).json({ msg: 'There is no booking for this user' });
+    }
+    res.json(profile);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+//@route  DELETE api/profile/booking/:booking_id
+//@desc   Delete pet from profile
+//@access Private
+
+router.delete('/booking/:booking_id', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // Get remove index
+    const removeIndex = profile.booking
+      .map(item => item.id)
+      .indexOf(req.params.pet_id);
+
+    profile.booking.splice(removeIndex, 1);
+
+    await profile.save();
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;
