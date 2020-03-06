@@ -15,7 +15,9 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </li>
         <li>
           <Link to='/bookings'>
-            <i className='fas fa-suitcase' /> Bookings
+            <i className='fas fa-suitcase' />
+            {' '}
+            <span className='hide-sm'>Bookings</span>
           </Link>
         </li>
         <li>
