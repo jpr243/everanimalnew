@@ -5,17 +5,14 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import DashboardActions from './DashboardActions';
 import Pets from './Pets';
-import Bookings from './Bookings';
+
 import { getCurrentProfile, deleteAccount } from '../../actions/profile';
-import { createBooking } from '../../actions/booking';
 
 const Dashboard = ({
   getCurrentProfile,
-  creatBooking,
   deleteAccount,
   auth: { user },
-  profile: { profile, loading },
-  booking: { booking }
+  profile: { profile, loading }
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -25,6 +22,8 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
+       <br/>
+       <br/>
       <h1 className='large text-primary'>Dashboard</h1>
       <h1 className='large text-primary'></h1>
       <p className='lead'>
@@ -34,7 +33,6 @@ const Dashboard = ({
         <Fragment>
           <DashboardActions />
           <Pets petinfo={profile.pet} />
-          <Bookings bookinginfo={booking} />
           <br />
           <br />
           <div className='my-2'>
@@ -67,6 +65,7 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
-  Dashboard
-);
+export default connect(mapStateToProps, {
+  getCurrentProfile,
+  deleteAccount
+})(Dashboard);

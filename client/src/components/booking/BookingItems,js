@@ -1,0 +1,45 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+const BookingItem = ({
+  datefrom,
+  departuretime,
+  sitterarrive,
+  dateto,
+  returntime,
+  sitterleave,
+  keysleft,
+  money
+}) => {
+  return (
+    <div className='booking bg-light'>
+      <img src='' alt='' className='round-img' />
+      <div>
+        <h2>
+          <span>
+            {datefrom} and {departuretime}
+          </span>
+        </h2>
+        <p className='my-1'>{sitterarrive}</p>
+        <h2>
+          <span>
+            {dateto} and {returntime}
+          </span>
+        </h2>
+        <p className='my-1'>{sitterleave}</p>
+        <p className='my-1'>Keys to be left on/in {keysleft}</p>
+        <p className='my-1'>Money for incidentals {money}</p>
+        <Link to={`/booking/${_id}`} className='btn btn-primary'>
+          View Booking
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+Bookingitem.propTypes = {
+  booking: PropTypes.object.isRequired
+};
+
+export default BookingItem;

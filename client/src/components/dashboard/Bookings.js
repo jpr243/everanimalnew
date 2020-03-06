@@ -26,6 +26,7 @@ const Bookings = ({ bookinginfo, deleteBooking }) => {
   return (
     <Fragment>
       <br />
+      <br/>
       <h2 className='my-2'>Booking Information</h2>
       <table className='table'>
         <thead>

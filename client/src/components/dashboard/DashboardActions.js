@@ -13,6 +13,9 @@ const DashboardActions = () => {
       <Link to='/create-booking' className='btn btn-light'>
         <i className='fas fa-suitcase text-primary'></i>Add Booking Details
       </Link>
+      <Link to='/edit-booking' className='btn btn-light'>
+        <i className='fas fa-suitcase text-primary'></i>Edit Booking Details
+      </Link>
     </div>
   );
 };

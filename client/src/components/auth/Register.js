@@ -33,6 +33,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
+      <br/>
+      <br/>
       <section className='container'>
         <h1 className='large text-primary '>Join Now</h1>
         <p className='lead'>
