@@ -4,6 +4,9 @@ import { setAlert } from './alert';
 import {
   GET_PROFILE,
   PROFILE_ERROR,
+  GET_BOOKING,
+  CLEAR_BOOKING,
+  BOOKING_ERROR,
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   ACCOUNT_DELETED
@@ -118,6 +121,71 @@ export const deletePet = id => async dispatch => {
       payload: res.data
     });
     dispatch(setAlert('Pet Removed', 'success'));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Create Booking
+export const createBooking = (formData, history) => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        'Content-type': 'application/json'
+      }
+    };
+    const res = await axios.put('/api/profile/booking', formData, config);
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data
+    });
+
+    dispatch(setAlert('Booking Added', 'success'));
+    history.push('/dashboard');
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+//Get current users booking
+export const getCurrentBooking = () => async dispatch => {
+  try {
+    const res = await axios.get('/api/profile/booking');
+
+    dispatch({
+      type: GET_BOOKING,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({ type: CLEAR_BOOKING });
+
+    dispatch({
+      type: BOOKING_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Delete a booking
+export const deleteBooking = id => async dispatch => {
+  try {
+    const res = await axios.delete(`/api/profile/booking/${id}`);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data
+    });
+    dispatch(setAlert('Booking Removed', 'success'));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
