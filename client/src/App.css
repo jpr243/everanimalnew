@@ -456,7 +456,7 @@ button {
     #16bffd
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   text-align: center;
-  position: fixed;
+
   top: 100px;
   left: 0;
   width: 100%;
@@ -479,13 +479,14 @@ button {
 .banner-text {
   background-color: darkslateblue;
   opacity: 0.8;
-  width: 35%;
-  margin: auto;
+  width: 45%;
+
   padding: 20px;
   border-radius: 40px;
 }
 
-.banner-text h1 {
+.banner-text {
+  text-align: center;
   font-size: 66px;
   font-weight: bold;
   color: white;
