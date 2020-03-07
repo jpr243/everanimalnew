@@ -8,7 +8,6 @@ import dog from '../../img/dog.jpg';
 import bird from '../../img/bird.jpg';
 import house from '../../img/house.jpg';
 
-
 export const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />;
@@ -17,40 +16,40 @@ export const Landing = ({ isAuthenticated }) => {
     <div style={{ width: '100%', margin: 'auto' }}>
       <Grid className='landing-grid'>
         <Cell col={12}>
-          <img className='pet-img' src={dog} alt='dog'  />
-          <img className='pet-img' src={cat} alt='cat'  />
-          <img className='pet-img' src={bird} alt='bird'  />
+          <img className='pet-img' src={dog} alt='dog' />
+          <img className='pet-img' src={cat} alt='cat' />
+          <img className='pet-img' src={bird} alt='bird' />
           <div className='banner-text'>
-            <h1>Everanimal </h1>
+            <h1>Everanimal</h1>
           </div>
           <br />
-          <br />
         </Cell>
-        <Cell col={6}>
+        <Cell col={12}>
           <p className='text-minor px-4'>
             Trust us to care for your beloved pets and home
           </p>
         </Cell>
         <br />
-        <Cell col={4}>
-        <img className='sq-img' src={house} alt='house'  />
+        <Cell col={12}>
+          <img className='sq-img' src={house} alt='house' />
           <p className='text-minor'>
-            Going away? Enjoy your holiday worry free knowing your home and pets
-            are safe!
+            <h5>
+              Going away? Enjoy your holiday worry free knowing your pets and
+              home are safe!
+            </h5>
           </p>
         </Cell>
-        <br />
-        <br />
-        <Cell col={12}>
-          <div className='buttons'>
-            <Link to='/register' className='btn btn-primary'>
-              Join Now
-            </Link>
-            <Link to='/login' className='btn btn-light'>
-              Login
-            </Link>
-          </div>
-        </Cell>
+
+        <div className='buttons'>
+          <Link to='/register' className='btn btn-primary'>
+            Join Now
+          </Link>
+          <Link to='/login' className='btn btn-light'>
+            Login
+          </Link>
+          <br/>
+          <p className='copyright'>&copy; 2020 Everanimal</p>
+        </div>
       </Grid>
     </div>
   );

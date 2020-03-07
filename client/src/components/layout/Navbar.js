@@ -10,13 +10,7 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to='/dashboard'>
           <i className='fas fa-user' />{' '}
-          <span className='hide-sm'>Dashboard</span>
-        </Link>
-      </li>
-      <li>
-        <Link to='/booking'>
-          <i className='fas fa-suitcase' />{' '}
-          <span className='hide-sm'>Booking</span>
+          <span className='hide-sm'>Client Dashboard</span>
         </Link>
       </li>
       <li>

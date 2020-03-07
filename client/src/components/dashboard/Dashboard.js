@@ -23,7 +23,7 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className='large text-primary'>Dashboard</h1>
+      <h1 className='large text-primary'>Client Dashboard</h1>
       <h1 className='large text-primary'></h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Welcome {user && user.name}
@@ -42,9 +42,9 @@ const Dashboard = ({
         </Fragment>
       ) : (
         <Fragment>
-          <p>You have not yet set up a Profile, please add some information</p>
-          <Link to='/create-profile' className='btn btn-primary my-1'>
-            Create Profile
+          <p>You have not added any client details, please add some information</p>
+          <Link to='/create-client' className='btn btn-primary my-1'>
+            Add Client Details
           </Link>
         </Fragment>
       )}

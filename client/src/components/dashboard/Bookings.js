@@ -7,14 +7,15 @@ import { deleteBooking } from '../../actions/profile';
 
 const Bookings = ({ bookinginfo, deleteBooking }) => {
   const bookings = bookinginfo.map(book => (
-    <tr key={book._id}>
-      <td>
+    <tr style={{ width: '100%', margin: 'auto' }} key={book._id}>
+      <td style={{ width: '25%' }}>
         <Moment format='DD/MM/YYYY'>{moment.utc(book.from)}</Moment>
       </td>
-      <td>
+      <td style={{ width: '25%' }}>
         <Moment format='DD/MM/YYYY'>{moment.utc(book.to)}</Moment>
       </td>
-      <td>
+      <td style={{ width: '25%' }}></td>
+      <td style={{ width: '25%' }}>
         <button
           onClick={() => deleteBooking(book._id)}
           className='btn btn-danger'
@@ -27,13 +28,14 @@ const Bookings = ({ bookinginfo, deleteBooking }) => {
   return (
     <Fragment>
       <br />
-      <br/>
+      <br />
       <h2 className='my-2'>Booking Information</h2>
       <table className='table'>
         <thead>
           <tr>
             <th>From</th>
             <th>To</th>
+            <th><span></span></th>
             <th />
           </tr>
         </thead>

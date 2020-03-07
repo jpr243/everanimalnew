@@ -6,10 +6,14 @@ import { deletePet } from '../../actions/profile';
 const Pets = ({ petinfo, deletePet }) => {
   const pets = petinfo.map(pet => (
     <tr key={pet._id}>
-      <td>{pet.petname}</td>
-      <td className='hide-sm'>{pet.animal}</td>
-      <td className='hide-sm'>{pet.breed}</td>
-      <td>
+      <td style={{ width: '25%' }}>{pet.petname}</td>
+      <td style={{ width: '25%' }} className='hide-sm'>
+        {pet.animal}
+      </td>
+      <td style={{ width: '25%' }} className='hide-sm'>
+        {pet.breed}
+      </td>
+      <td style={{ width: '25%' }}>
         <button onClick={() => deletePet(pet._id)} className='btn btn-danger'>
           Delete
         </button>
@@ -25,7 +29,6 @@ const Pets = ({ petinfo, deletePet }) => {
             <th>Pet</th>
             <th className='hide-sm'>Animal</th>
             <th className='hide-sm'>Breed</th>
-            <th />
           </tr>
         </thead>
         <tbody>{pets}</tbody>

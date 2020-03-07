@@ -18,8 +18,8 @@ const Routes = () => {
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
-        <PrivateRoute exact path='/create-profile' component={CreateProfile} />
-        <PrivateRoute exact path='/edit-profile' component={EditProfile} />
+        <PrivateRoute exact path='/create-client' component={CreateProfile} />
+        <PrivateRoute exact path='/edit-client' component={EditProfile} />
         <PrivateRoute exact path='/add-pet' component={AddPet} />
         <PrivateRoute exact path='/create-booking' component={CreateBooking} />
       </Switch>
