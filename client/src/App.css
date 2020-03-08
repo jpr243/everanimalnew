@@ -260,7 +260,17 @@ button {
 }
 
 .table th {
-  background: var(--light-color);
+  background: #16bffd; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #cb3066,
+    #16bffd
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #cb3066,
+    #16bffd
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* Navbar */
@@ -391,11 +401,11 @@ button {
     #16bffd
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   text-align: center;
-  top: 100px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  margin-bottom: 5px;
+
 }
 
 .pet-img {
