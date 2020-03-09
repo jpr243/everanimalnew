@@ -13,7 +13,7 @@ export const Landing = ({ isAuthenticated }) => {
     return <Redirect to='/dashboard' />;
   }
   return (
-    <div style={{ width: '100%', margin: 'auto' }}>
+    <div style={{ width: '100%', margin: 'auto', height: '1-' }}>
       <Grid className='landing-grid'>
         <Cell col={12}>
           <img className='pet-img' src={dog} alt='dog' />
@@ -32,12 +32,10 @@ export const Landing = ({ isAuthenticated }) => {
         <br />
         <Cell col={12}>
           <img className='sq-img' src={house} alt='house' />
-          <p className='text-minor'>
-            <h5>
-              Going away? Enjoy your holiday worry free knowing your pets and
-              home are safe!
-            </h5>
-          </p>
+          <h5>
+            Going away? Enjoy your holiday worry free knowing your pets and home
+            are safe!
+          </h5>
         </Cell>
 
         <div className='buttons'>
@@ -47,7 +45,7 @@ export const Landing = ({ isAuthenticated }) => {
           <Link to='/login' className='btn btn-light'>
             Login
           </Link>
-          <br/>
+          <br />
           <p className='copyright'>&copy; 2020 Everanimal</p>
         </div>
       </Grid>
