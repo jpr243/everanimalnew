@@ -29,6 +29,7 @@ const Pets = ({ petinfo, deletePet }) => {
             <th>Pet</th>
             <th className='hide-sm'>Animal</th>
             <th className='hide-sm'>Breed</th>
+            <th />
           </tr>
         </thead>
         <tbody>{pets}</tbody>
