@@ -34,8 +34,10 @@ const Bookings = ({ bookinginfo, deleteBooking }) => {
         <thead>
           <tr>
             <th>From</th>
+            <th>
+              <span></span>
+            </th>
             <th>To</th>
-            <th><span></span></th>
             <th />
           </tr>
         </thead>
