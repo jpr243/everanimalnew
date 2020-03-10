@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://janet123:janet123@everanimal-kogyb.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
+  "mongoURI": "mongodb+srv://putyourdetailshere",
+  "jwtSecret": "yoursecretshere"
 }
